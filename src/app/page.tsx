@@ -1,11 +1,12 @@
 "use client"
 
 import MealPlannerForm from "@/components/home/MealPlannerForm"
-import { Button } from "@/components/ui/button"
+import MealPlanOutput from "@/components/home/MealPlanOutput"
+import { MealPlanProvider } from "@/context/MealPlanContext"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <main className="min-h-screen bg-gradient-to-b from-green-100 to-white">
       {/* Header Section */}
       <div className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">AI-Powered Meal Plan Generator</h1>
@@ -15,6 +16,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
+      <MealPlanProvider>
       <div className="container mx-auto px-4 pb-20">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Input Section */}
@@ -26,10 +28,11 @@ export default function Home() {
           {/* Output Section */}
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h2 className="text-2xl font-semibold text-green-700 mb-6">Your Meal Plan</h2>
-            {/* <MealPlanOutput /> */}
+            <MealPlanOutput />
           </div>
         </div>
       </div>
+      </MealPlanProvider>
     </main>
   )
 }
