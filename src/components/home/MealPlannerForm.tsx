@@ -26,7 +26,7 @@ import { Loader2 } from 'lucide-react'
  
 
 const formSchema = z.object({
-  calorie: z.string(),
+  calorie: z.coerce.number().min(1000, "Calorie target must be at least 1000"),
   dietPreference: z.enum(["vegetarian", "vegan", "keto", "paleo", "gluten-free", "none"], {
     errorMap: ()=> ({
       message: "Please select a valid diet preference"})
@@ -41,8 +41,8 @@ const MealPlannerForm = () => {
    const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      calorie: "",
-      dietPreference: "none",
+      calorie: 1000,
+      // dietPreference: "none", // Remove default to force selection
       mealsPerDay: "3",
       allergies: "",
       note: "",
@@ -101,7 +101,8 @@ const MealPlannerForm = () => {
               <FormControl>
                 <Select
                   onValueChange={field.onChange}
-                  defaultValue={field.value}
+                  value={field.value}
+                  defaultValue={undefined}
                 >
                 <FormControl>
                   <SelectTrigger>
