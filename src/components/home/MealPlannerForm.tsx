@@ -52,9 +52,7 @@ const MealPlannerForm = () => {
   const {setOutput, setLoading, loading} = useContext(MealPlanContext)
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+   
     setLoading(true)
 
     const userInputValues = `
@@ -66,7 +64,7 @@ const MealPlannerForm = () => {
     `
     try {
       const {data} = await generateMealPlan(userInputValues)
-      console.log("Generated Meal Plan:", data)
+      
       setOutput(data)
       setLoading(false)
     } catch (error) {
