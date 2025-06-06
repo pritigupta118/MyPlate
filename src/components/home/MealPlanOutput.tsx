@@ -53,7 +53,7 @@ const MealPlanOutput = () => {
                           </div>
 
                           <p className="text-gray-800 bg-green-100 p-3 rounded-lg">{meal?.food}</p>
-                          {/* <p className="text-sm text-gray-400 w-2 h-2 rounded-full mr-1">Calories: {meal?.calorie}</p> */}
+                          
                           <span className="flex items-center">
                             <span className="w-2 h-2 rounded-full bg-green-500 mr-1"></span> {meal?.calorie} cal
                           </span>
@@ -75,7 +75,7 @@ const MealPlanOutput = () => {
             <img src="/output-logo.svg" alt="Meal plan icon" className="w-12 h-12 text-green-500" />
           </div>
           <h3 className="text-xl font-medium text-gray-700">Your meal plan will appear here</h3>
-          <p className="text-gray-500">Fill out your preferences and click "Generate Meal Plan" to get started</p>
+          <p className="text-gray-500">Fill out your preferences and click &quot;Generate Meal Plan&quot; to get started</p>
         </div>
       )}
     </div>
